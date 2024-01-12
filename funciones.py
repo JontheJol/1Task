@@ -6,18 +6,56 @@ class Funciones:
         self.genero = genero
         self.año = año
         self.funciones = []
+        self.check=0
     def __str__(self):
-        return f"La funcion {self.nomebre} es de clasificacion {self.clasificacion} dirigida por {self.director} del genero {self.genero} del año {self.año}"
-
+        if self.check == 1:
+            f=self.funciones
+        else:
+            f ={"nombre":self.nomebre,
+            "clasificacion": self.clasificacion,
+            "Director":self.director,
+            "genero":self.genero,
+            "año": self.año}
+        return str(f)
+        #añade funcion
     def add_funciones(self,funcion):
-        self.funciones.append(funcion)
-        
+        if self.check == 0 :
+            self.funciones=[{"nombre":self.nomebre,
+            "clasificacion": self.clasificacion,
+            "Director":self.director,
+            "genero":self.genero,
+            "año": self.año}]
+            self.funciones.append(funcion)
+            self.check=1
+        else:
+            self.funciones.append(
+                {"nombre":funcion.nomebre,
+                "clasificacion": funcion.clasificacion,
+                "Director":funcion.director,
+                "genero":funcion.genero,
+                "año": funcion.año}
+            )
+    
+    def delete_funciones(self, funcion):
+        if funcion in self.funciones:
+            self.funciones.remove(funcion)
         
 
 if __name__ == "__main__":
     print("Hola mundo")
     func= Funciones("das", "das", "das", "das", "das")
+    dos=Funciones("2das2", "das", "das", "das", "das")
+   
+    sos=Funciones("4das4", "das", "das", "das", "das")
     print(func)
-    func.add_funciones= Funciones("2", "3", "4", "5", "5")
+    func.add_funciones(dab)
     print(func)
+    func.add_funciones(dos)
+    print(func)
+    func.delete_funciones(dos)
+    func.add_funciones(sos)
+    print(func)
+
+
+    
     

@@ -1,4 +1,3 @@
-import funciones 
 from funciones import Funciones
 class Salas:
     def __init__(self, numero, can_sillas , altura, encargado, funciones):
