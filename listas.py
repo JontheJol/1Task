@@ -1,18 +1,30 @@
 class Listas:
     def __init__(self):
         self.lista = []
-        self.check = 0
+        self.elementos = 0
+        self.dic={}
+        self.dicnuf=[]
+ 
 
     def __str__(self):
         return str(self.lista)
 
+    def mostrar_directorio(self):
+        if self.lista:
+            for elemento in self.lista:
+                self.dicnuf.append(self.dict)
+            return self.dicnuf
+        else: self.dic
+        return d
+
     def agregar_elemento(self, elemento):
         self.lista.append(elemento)
-        self.check += 1
-        
+        self.elementos += 1
+  
     def eliminar_elemento(self, elemento):
         if elemento in self.lista:
             self.lista.remove(elemento)
+            self.elementos -= 1
         else:
             raise ValueError("El elemento no se encuentra en la lista")
 

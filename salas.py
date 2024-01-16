@@ -1,21 +1,30 @@
 from funciones import Funciones
-import listas
-class Salas:
-    def __init__(self, numero, can_sillas , altura, encargado, funciones):
+from listas import Listas
+class Salas(Listas):
+    def __init__(self, numero = None, can_sillas =None , altura = None, encargado = None, funciones = None):
+        super().__init__()
         self.numero = numero
         self.can_sillas = can_sillas
         self.altura = altura
         self.encargado = encargado
         self.funciones = funciones
-        self.lista = listas.Listas()
-        self.lista.agregar_elemento(self)
+        self.lista = []
     def __str__(self):
+        if self.lista:
+            return str(self.elementos)+ " son el numero de salas que hay en la lista"
         return f"la sala {self.numero} tiene la  cantidad de sillas {self.can_sillas} con una altua de {self.altura} dada al encargado{self.encargado},con {self.funciones}"
 
 if __name__ == "__main__":
     print("Hola mundo")
-    sala2 = Salas(2, 100, 10, "Juan", Funciones("Hanibal", "B", "forto", "Fantasia", 2001))
-    sala = Salas(1, 100, 10, "Juan", Funciones("El señor de los anillos", "B", "Peter Jackson", "Fantasia", 2001))
+    func = Funciones()
+    dos = Funciones("2das2", "das", "das", "das", "das")
+    tres = Funciones("3das3", "das", "das", "das", "das")
+    sos = Funciones("4das4", "das", "das", "das", "das")
+    func.agregar_elemento(dos)
+    func.agregar_elemento(sos)
+    sala = Salas()
+    sala2 = Salas(2, 100, 10, "Juan", func)
+    sala3 = Salas(1, 100, 10, "Juan", func)
+    sala.agregar_elemento(sala2)
     print(sala)
-    sala.lista.agregar_elemento(sala2)
-    print(sala.lista.leer_lista())
+    print(sala.leer_lista())
