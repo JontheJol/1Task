@@ -13,6 +13,15 @@ class Salas(Listas):
         if self.lista:
             return str(self.elementos)+ " son el numero de salas que hay en la lista"
         return f"la sala {self.numero} tiene la  cantidad de sillas {self.can_sillas} con una altua de {self.altura} dada al encargado{self.encargado},con {self.funciones}"
+'''
+    def mostrar_directorio(self):
+    if self.check:
+        dicnuf=[]
+        for elemento in self.lista:
+            dicnuf.append(elemento.mostrar_directorio())
+            return dicnuf
+    else:
+        return self.dic'''
 
 if __name__ == "__main__":
     print("Hola mundo")

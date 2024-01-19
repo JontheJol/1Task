@@ -1,21 +1,19 @@
-class Listas:
-    def __init__(self):
+from converJ import Archivo
+class Listas(Archivo):
+    def __init__(self,check):
+        super().__init__
         self.lista = []
         self.elementos = 0
         self.dic={}
-        self.dicnuf=[]
+        self.check= check
+      #  self.dicnuf=[]
  
 
     def __str__(self):
         return str(self.lista)
 
     def mostrar_directorio(self):
-        if self.lista:
-            for elemento in self.lista:
-                self.dicnuf.append(self.dict)
-            return self.dicnuf
-        else: self.dic
-        return d
+        pass
 
     def agregar_elemento(self, elemento):
         self.lista.append(elemento)
