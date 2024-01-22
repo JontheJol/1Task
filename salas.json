@@ -1,1 +1,7 @@
-[{"numero": 2, "can_sillas": 100, "altura": 10, "encargado": "Juan", "funciones": [{"nombre": "2das2", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"}, {"nombre": "4das4", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"}]}]
+[{
+"numero": 7, "can_sillas": 100, "altura": 10, "encargado": "Juan", "funciones": [{
+"nombre": "2das2", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
+}, {
+"nombre": "4das4", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
+}]
+}]

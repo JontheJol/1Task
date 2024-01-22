@@ -17,6 +17,20 @@ class Salas(Listas):
             return str(self.elementos)+ " son el numero de salas que hay en la lista"
         return f"la sala {self.numero} tiene la  cantidad de sillas {self.can_sillas} con una altua de {self.altura} dada al encargado{self.encargado},con {self.funciones}"
 
+    def convertir_json_a_salas(self,json_data):
+        func=Funciones()
+        uno=0
+        for funcion_data in json_data:
+             if uno == 0:
+                func.convertir_json_a_funciones(funcion_data["funciones"])
+             self.agregar_elemento( Salas(
+                numero=funcion_data["numero"],
+                can_sillas=funcion_data["can_sillas"],
+                altura=funcion_data["altura"],
+                encargado=funcion_data["encargado"],
+                funciones=func
+            ))
+
     def mostrar_directorio(self):
         if self.check:
             dicnuf=[]
@@ -24,7 +38,7 @@ class Salas(Listas):
                 dicnuf.append(eleme.mostrar_directorio())
             return dicnuf
         else:
-            return {"numero":self.numero,"can_sillas":self.can_sillas,"altura":self.altura,"encargado":self.encargado,"funciones":self.funciones.mostrar_directorio() or None}
+            return {"numero":self.numero,"can_sillas":self.can_sillas,"altura":self.altura,"encargado":self.encargado,"funciones":self.funciones.mostrar_directorio()}
 
 if __name__ == "__main__":
     print("Hola mundo")
@@ -39,5 +53,10 @@ if __name__ == "__main__":
     sala3 = Salas(1, 100, 10, "Juan", func)
     sala.agregar_elemento(sala2)
     print(sala)
-    print(sala.mostrar_directorio())
-    sala.safe("salas.json",str(sala.mostrar_directorio()))
+   # print(sala.mostrar_directorio())
+
+    lop =Salas()
+    json_data=sala.read("salas.json")
+    lop.convertir_json_a_salas(json_data)
+    print(lop.mostrar_directorio())
+ #   sala.safe("salas.json",str(sala.mostrar_directorio()))

@@ -11,7 +11,7 @@ class Funciones(Listas):
         self.director = director
         self.genero = genero
         self.año = año
-        self.dic={"nombre":self.nombre,"clasificacion":self.clasificacion,"director":self.director,"genero":self.genero,"año":self.año}
+        
 
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Funciones(Listas):
                 genero=funcion_data["genero"],
                 año=funcion_data["año"]
             ))
-        return self.mostrar_directorio()
+
     
     def mostrar_directorio(self):
         if self.check:
@@ -37,7 +37,7 @@ class Funciones(Listas):
                 dicnuf.append(eleme.mostrar_directorio())
             return dicnuf
         else:
-            return self.dic
+            return {"nombre":self.nombre,"clasificacion":self.clasificacion,"director":self.director,"genero":self.genero,"año":self.año}
 
 
 if __name__ == "__main__":
@@ -53,9 +53,9 @@ if __name__ == "__main__":
     print(func.leer_lista())
     print(func.leer_elemento(sos))
     print(func)
-
-    lop = Funciones()
-    json_data = func.read("funciones.json")
+    lop =Funciones()
+    json_data=func.read("funciones.json")
     lop.convertir_json_a_funciones(json_data)
     print(lop.mostrar_directorio())
-  #func.safe("funciones.json",str(func.mostrar_directorio()))
+   
+   # func.safe("funciones.json",str(func.mostrar_directorio()))
