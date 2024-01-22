@@ -1,4 +1,5 @@
 from listas import Listas
+import json
 class Funciones(Listas):
     def __init__(self, nombre = None, clasificacion =None, director =None, genero =None, año =None):
         if nombre == None:
@@ -18,6 +19,16 @@ class Funciones(Listas):
             return str(self.elementos)+ " son el numero de funciones que hay en la lista"
         return f"La funcions {self.nombre} es de clasificacion {self.clasificacion} dirigida por {self.director} del genero {self.genero} del año {self.año}"
     
+    def convertir_json_a_funciones(self,json_data):
+        for funcion_data in json_data:
+             self.agregar_elemento( Funciones(
+                nombre=funcion_data["nombre"],
+                clasificacion=funcion_data["clasificacion"],
+                director=funcion_data["director"],
+                genero=funcion_data["genero"],
+                año=funcion_data["año"]
+            ))
+        return self.mostrar_directorio()
     
     def mostrar_directorio(self):
         if self.check:
@@ -41,6 +52,10 @@ if __name__ == "__main__":
     print(func.mostrar_directorio())
     print(func.leer_lista())
     print(func.leer_elemento(sos))
-    print(func)    
-  
-    func.safe("funciones.json",str(func.mostrar_directorio()))
+    print(func)
+
+    lop = Funciones()
+    json_data = func.read("funciones.json")
+    lop.convertir_json_a_funciones(json_data)
+    print(lop.mostrar_directorio())
+  #func.safe("funciones.json",str(func.mostrar_directorio()))

@@ -7,3 +7,10 @@ class Archivo:
             text = text.replace("'", '"')
             file.write(text)
             file.close
+
+    def read(self, path):
+        with codecs.open(path, "r", encoding="utf-8") as file:
+            text = file.read()
+            text = text.replace("'", ' ')
+            file.close
+            return text
