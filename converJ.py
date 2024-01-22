@@ -10,7 +10,5 @@ class Archivo:
 
     def read(self, path):
         with codecs.open(path, "r", encoding="utf-8") as file:
-            text = file.read()
-            text = text.replace("'", ' ')
-            file.close
+            text =json.load(file)
             return text
