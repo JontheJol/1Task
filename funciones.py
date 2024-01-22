@@ -43,4 +43,4 @@ if __name__ == "__main__":
     print(func.leer_elemento(sos))
     print(func)    
   
-    func.safe("lop1.json",str(func.mostrar_directorio()))
+    func.safe("funciones.json",str(func.mostrar_directorio()))

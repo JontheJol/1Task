@@ -1,0 +1,1 @@
+[{"nombre": "Cinepolis", "direccion": "Av. 1", "gerente": "Juan", "snack": 1, "salas": {"numero": 1, "can_sillas": 100, "altura": 10, "encargado": "Juan", "funciones": {"nombre": "El señor de los anillos", "clasificacion": "B", "director": "Peter Jackson", "genero": "Fantasia", "año": 2001}}}]
