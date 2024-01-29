@@ -65,5 +65,11 @@ if __name__ == "__main__":
     json_data = lop.read("cine.json")
     fomo.convertir_json_a_cine(json_data)
     print(fomo.mostrar_directorio())
+    '''for c in fomo.lista:
+        print(type(c))
+        for s in c.salas.lista:
+            print(type(s))
+            for f in s.funciones.lista:
+                print(type(f))'''
    # lop.safe("cine.json",str(lop.mostrar_directorio()))
     
