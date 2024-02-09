@@ -4,3 +4,7 @@
 #4 mis clases no deven llevar print
 #5 cada c;ase deve trabajar p
 #funciones -> salas ->cine 
+
+#primera vez tomara de el Json
+#pero deve permitir que desde pueda recibir funciones de salas 
+#
