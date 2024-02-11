@@ -26,10 +26,10 @@ class Listas(Archivo):
         else:
             raise ValueError("El elemento no se encuentra en la lista")
 
-    def actualizar_elemento(self, elemento_a_actualizar, nuevo_elemento):
+    def actualizar_elemento(self, id, func):
         if elemento_a_actualizar in self.lista:
-            self.lista.remove(elemento_a_actualizar)
-            self.lista.append(nuevo_elemento)
+            self.lista.pop(id-1)
+            self.lista.insert(id-1,func)
         else:
             raise ValueError("El elemento no se encuentra en la lista")
 
