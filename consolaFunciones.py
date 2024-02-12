@@ -4,14 +4,14 @@ class menuFunciones:
         self.safejson=safejson
         self.fun=Funciones()
         if self.safejson==None:
-            self.safejson=False
-        else:
             self.safejson=True
+        else:
+            self.safejson=False
         
 
     def menu(self):
         print("bienvenido a trabajar con funciones ")
-        if self.safejson == True:
+        if self.safejson == False:
             print("vas a usar las  funciones escribe  0 , usa 1 para usar  archiv json ")
 
             eleccion = None
@@ -47,6 +47,8 @@ class menuFunciones:
             print("1.crear una funcion \n2.ver la funcion\n3.modificar un aspecto de la funcion\n 4.elimiar una funcion")
             print("5.salir")
             opcion = int(input("ingrese la opcion que desea realizar: "))
+        if self.safejson == True:
+            self.guardar()
 #TODO: agregar la funcion de agregar, mostrar, modificar y eliminar
     def agregar(self):
          print("ingrese los datos de la funcion")
@@ -56,6 +58,7 @@ class menuFunciones:
          genero = input("ingrese el genero de la funcion: ")
          año = input("ingrese el año de la funcion: ")
          self.fun.agregar_elemento(Funciones(nombre,clasificacion,director,genero,año))
+         self.mostrar()
          # print(fun.mostrar_directorio())
     def mostrar(self):
          print("las funciones que hay son: ")
@@ -64,8 +67,8 @@ class menuFunciones:
     
     def modificar(self):
          print("elige la funcion que desea modificar")
-         print(self.fun.mostrar_directorio())
-         elecion= input("ingrese el numero  de la funcion que desea modificar: ")
+         self.mostrar()
+         elecion= int(input("ingrese el numero  de la funcion que desea modificar: "))
          print("ingrese los datos de la funcion")
          nombre= input("ingrese el nombre de la funcion: ")
          clasificacion = input("ingrese la clasificacion de la funcion: ")
@@ -77,10 +80,13 @@ class menuFunciones:
         # print(fun.mostrar_directorio())
     def eliminar(self):
         print("elige la funcion que desea eliminar")
-        print(self.fun.mostrar_directorio())
-        elecion= input("ingrese el numero  de la funcion que desea eliminar: ")
+        self.mostrar()
+        elecion= int(input("ingrese el numero  de la funcion que desea eliminar: "))
         self.fun.eliminar_elemento(elecion)
         # print(fun.mostrar_directorio())
+    def guardar(self):
+        self.fun.safe("funciones.json",str(self.fun.mostrar_directorio()))
+        print("se guardo correctamente")
 if __name__ == "__main__":
     menu=menuFunciones()
     menu.menu()

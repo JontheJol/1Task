@@ -19,18 +19,22 @@ class Listas(Archivo):
         self.lista.append(elemento)
         self.elementos += 1
   
-    def eliminar_elemento(self, elemento):
-        if elemento in self.lista:
-            self.lista.remove(elemento)
+    def eliminar_elemento(self, index):
+        if 0 <= index < self.elementos:
+            self.lista.pop(index)
             self.elementos -= 1
         else:
-            raise ValueError("El elemento no se encuentra en la lista")
+            raise ValueError("El índice está fuera del rango de la lista")
 
     def actualizar_elemento(self, id, func):
-        if elemento_a_actualizar in self.lista:
-            self.lista.pop(id-1)
-            self.lista.insert(id-1,func)
+        # Check if the id is within the range of the list
+        if 0 <= int(id) < len(self.lista):
+            # Remove the element at the given index
+            self.lista.pop(id)
+            # Insert the new element at the given index
+            self.lista.insert(id, func)
         else:
+            # Raise an error if the id is out of range
             raise ValueError("El elemento no se encuentra en la lista")
 
     def leer_lista(self):
