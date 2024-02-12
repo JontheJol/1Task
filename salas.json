@@ -4,4 +4,8 @@
 }, {
 "nombre": "4das4", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
 }]
+}, {
+"numero": "123", "can_sillas": "qe", "altura": "qwe", "encargado": "qwe", "funciones": [{
+"nombre": "qwe", "clasificacion": "qwe", "director": "qwe", "genero": "qwe", "año": "qwe"
+}]
 }]

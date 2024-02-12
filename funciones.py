@@ -35,6 +35,7 @@ class Funciones(Listas):
             dicnuf=[]
             for eleme in self.lista:
                 dicnuf.append(eleme.mostrar_directorio())
+                
             return dicnuf
         else:
             return {"nombre":self.nombre,"clasificacion":self.clasificacion,"director":self.director,"genero":self.genero,"año":self.año}
