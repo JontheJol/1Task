@@ -2,11 +2,15 @@ from salas import Salas
 from consolaFunciones import menuFunciones
 
 class menuSalas:
-    def __init__(self, safejson=None, salas=None):
+    def __init__(self, salas=None):
         self.menuFunciones = None
-        if safejson == None:
+        if salas == None:
             self.safejson = True
             self.salas = Salas()
+            salas = Salas()
+            json_data = salas.read("salas.json")
+            salas.convertir_json_a_salas(json_data)
+            self.salas = salas
         else:
             self.safejson = False
             if salas == None:
@@ -15,21 +19,7 @@ class menuSalas:
                 self.salas = salas        
     def menu(self):
         print("Bienvenido a trabajar con salas")
-        if self.safejson == False:
-            print("Vas a usar las salas? Escribe 0, usa 1 para usar un archivo JSON")
-            eleccion = None
-            while eleccion not in [0, 1]:
-                eleccion = int(input("Ingrese la opción que desea realizar (0 or 1): "))
-            if eleccion != 0:
-                salas = Salas()
-                json_data = salas.read("salas.json")
-                salas.convertir_json_a_salas(json_data)
-                self.salas = salas
-        else:
-            salas = Salas()
-            json_data = salas.read("salas.json")
-            salas.convertir_json_a_salas(json_data)
-            self.salas = salas
+
         print("1. Crear una sala\n2. Ver la sala\n3. Modificar un aspecto de la sala\n4. Eliminar una sala")
         print("5. Salir")
 
@@ -49,6 +39,8 @@ class menuSalas:
             print("1. Crear una sala\n2. Ver la sala\n3. Modificar un aspecto de la sala\n4. Eliminar una sala")
             print("5. Salir")
             opcion = int(input("Ingrese la opción que desea realizar: "))
+            if self.safejson:
+                self.guardar()
         if self.safejson == True:
             self.guardar()
 
@@ -69,12 +61,7 @@ class menuSalas:
         print(self.salas.mostrar_directorio())
         input("Presione enter para continuar")
     def modificar(self):
-        check = False
-        while check == False:
-            print("Ingrese el número de la sala que desea modificar")
-            ids = input("Ingrese el número de la sala: ")
-            if ids <= self.salas.elementos and ids >= self.salas.elementos:
-                check = True
+      
 
         print("Ingrese los datos de la sala")
         numero = input("Ingrese el número de la sala: ")
@@ -83,11 +70,11 @@ class menuSalas:
         encargado = input("Ingrese el nombre del encargado de la sala: ")
         self.menuFunciones = menuFunciones(self.safejson, self.salas.funciones)
         funciones = self.menuFunciones.menu()
-        self.salas.actualizar_elemento(ids, Salas(numero, can_sillas, altura, encargado, funciones))
+        self.salas.actualizar_elemento(0, Salas(numero, can_sillas, altura, encargado, funciones))
         self.mostrar()
     def eliminar(self):
         print("Ingrese el número de la sala que desea eliminar")
-        numero = int(input("Ingrese el número de la sala: "))
+        numero = in2t(input("Ingrese el número de la sala: "))
         self.salas.eliminar_elemento(numero)
         self.mostrar()
     def guardar(self):
