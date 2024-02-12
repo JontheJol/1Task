@@ -12,7 +12,7 @@ class menuSalas:
             if salas == None:
                 self.salas = Salas()
             else:
-                self.salas = salas
+                self.salas = salas        
     def menu(self):
         print("Bienvenido a trabajar con salas")
         if self.safejson == False:
@@ -35,6 +35,7 @@ class menuSalas:
 
         opcion = int(input("Ingrese la opción que desea realizar: "))
         while opcion != 5:
+            
             if opcion == 1:
                 self.agregar()
             elif opcion == 2:
@@ -50,13 +51,15 @@ class menuSalas:
             opcion = int(input("Ingrese la opción que desea realizar: "))
         if self.safejson == True:
             self.guardar()
+
+    
     def agregar(self):
         print("Ingrese los datos de la sala")
         numero = input("Ingrese el número de la sala: ")
         can_sillas = input("Ingrese la cantidad de sillas de la sala: ")
         altura = input("Ingrese la altura de la sala: ")
         encargado = input("Ingrese el nombre del encargado de la sala: ")
-        self.menuFunciones = menuFunciones(self.safejson, self.salas.funciones)
+        self.menuFunciones = menuFunciones(Funciones())
         funciones = self.menuFunciones.menu()
         self.salas.agregar_elemento(Salas(numero, can_sillas, altura, encargado, funciones))
         self.mostrar()
@@ -84,7 +87,7 @@ class menuSalas:
         self.mostrar()
     def eliminar(self):
         print("Ingrese el número de la sala que desea eliminar")
-        numero = input("Ingrese el número de la sala: ")
+        numero = int(input("Ingrese el número de la sala: "))
         self.salas.eliminar_elemento(numero)
         self.mostrar()
     def guardar(self):

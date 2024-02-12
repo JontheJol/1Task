@@ -1,10 +1,14 @@
 from funciones import Funciones
 class menuFunciones:
-    def __init__(self,safejson=None,fun=None):
-        self.safejson=safejson
-        if self.safejson==None:
+    def __init__(self,fun=None):
+
+        if fun==None:
             self.safejson=True
             self.fun=Funciones()
+            funciones = Funciones()
+            json_data = funciones.read("funciones.json")
+            funciones.convertir_json_a_funciones(json_data)
+            self.fun=funciones
         else:
             self.safejson=False
             if fun==None:
@@ -15,24 +19,6 @@ class menuFunciones:
 
     def menu(self):
         print("bienvenido a trabajar con funciones ")
-        #Elecion de usar o no el archivo json
-        if self.safejson == False:
-            print("vas a usar las  funciones escribe  0 , usa 1 para usar  archiv json ")
-
-            eleccion = None
-            while eleccion not in [0, 1]:
-                eleccion = int(input("ingrese la opcion que desea realizar(0 or 1): "))
-
-            if eleccion != 0:
-                funciones = Funciones()
-                json_data = funciones.read("funciones.json")
-                funciones.convertir_json_a_funciones(json_data)
-                fun=funciones
-        else:
-            funciones = Funciones()
-            json_data = funciones.read("funciones.json")
-            funciones.convertir_json_a_funciones(json_data)
-            self.fun=funciones
             
         print("1.crear una funcion \n2.ver la funcion\n3.modificar un aspecto de la funcion\n 4.elimiar una funcion")
         print("5.salir")
@@ -52,8 +38,10 @@ class menuFunciones:
             print("1.crear una funcion \n2.ver la funcion\n3.modificar un aspecto de la funcion\n 4.elimiar una funcion")
             print("5.salir")
             opcion = int(input("ingrese la opcion que desea realizar: "))
+            if self.safejson:
+                self.guardar
         #Elecion de guardar automaticamente
-        if self.safejson == True:
+        if self.safejson:
             self.guardar()
         else:
             return self.fun

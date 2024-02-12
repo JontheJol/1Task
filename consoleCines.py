@@ -13,8 +13,11 @@ class menuCines:
                 self.cines = Cine()
             else:
                 self.cines = cines
+
+
     def menu(self):
         print("Bienvenido a trabajar con cines")
+        #cargar  JSON o no
         if self.safejson == False:
             print("Vas a usar los cines? Escribe 0, usa 1 para usar un archivo JSON")
             eleccion = None
@@ -22,13 +25,13 @@ class menuCines:
                 eleccion = int(input("Ingrese la opción que desea realizar (0 or 1): "))
             if eleccion != 0:
                 cines = Cine()
-                json_data = cines.read("cines.json")
+                json_data = cines.read("cine.json")
                 cines.convertir_json_a_cines(json_data)
                 self.cines = cines
         else:
             cines = Cine()
-            json_data = cines.read("cines.json")
-            cines.convertir_json_a_cines(json_data)
+            json_data = cines.read("cine.json")
+            cines.convertir_json_a_cine(json_data)
             self.cines = cines
         print("1. Crear un cine\n2. Ver el cine\n3. Modificar un aspecto del cine\n4. Eliminar un cine")
         print("5. Salir")
@@ -93,7 +96,7 @@ class menuCines:
         self.cines.eliminar_elemento(ids)
         self.mostrar()
     def guardar(self):
-        self.cines.save("cines.json")
+        self.cines.save("cine.json")
         print("Se guardaron los cines en cines.json")
 
 if __name__ == "__main__":
