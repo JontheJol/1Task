@@ -3,12 +3,16 @@ from consolaFunciones import menuFunciones
 
 class menuSalas:
     def __init__(self, safejson=None, salas=None):
-        self.salas = Salas()
         self.menuFunciones = None
         if safejson == None:
             self.safejson = True
+            self.salas = Salas()
         else:
             self.safejson = False
+            if salas == None:
+                self.salas = Salas()
+            else:
+                self.salas = salas
     def menu(self):
         print("Bienvenido a trabajar con salas")
         if self.safejson == False:
@@ -65,8 +69,8 @@ class menuSalas:
         check = False
         while check == False:
             print("Ingrese el número de la sala que desea modificar")
-            numero = input("Ingrese el número de la sala: ")
-            if numero <= self.salas.elementos and numero >= self.salas.elementos:
+            ids = input("Ingrese el número de la sala: ")
+            if ids <= self.salas.elementos and ids >= self.salas.elementos:
                 check = True
 
         print("Ingrese los datos de la sala")
@@ -76,7 +80,7 @@ class menuSalas:
         encargado = input("Ingrese el nombre del encargado de la sala: ")
         self.menuFunciones = menuFunciones(self.safejson, self.salas.funciones)
         funciones = self.menuFunciones.menu()
-        self.salas.actualizar_elemento(numero, Salas(numero, can_sillas, altura, encargado, funciones))
+        self.salas.actualizar_elemento(ids, Salas(numero, can_sillas, altura, encargado, funciones))
         self.mostrar()
     def eliminar(self):
         print("Ingrese el número de la sala que desea eliminar")
