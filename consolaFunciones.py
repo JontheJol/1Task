@@ -67,12 +67,10 @@ class menuFunciones:
             input("presione enter para continuar")
         
     def modificar(self):
-         print("elige la funcion que desea modificar")
-         self.mostrar()
          if self.fun == None:
              print("no hay funciones")
              pass
-         elecion= int(input("ingrese el numero  de la funcion que desea modificar: "))
+         elecion= 0
          print("ingrese los datos de la funcion")
          nombre= input("ingrese el nombre de la funcion: ")
          clasificacion = input("ingrese la clasificacion de la funcion: ")
@@ -83,12 +81,10 @@ class menuFunciones:
          self.fun.actualizar_elemento(elecion,Funciones(nombre,clasificacion,director,genero,año))
         # print(fun.mostrar_directorio())
     def eliminar(self):
-        print("elige la funcion que desea eliminar")
-        self.mostrar()
         if self.fun == None:
              print("no hay funciones")
              pass
-        elecion= int(input("ingrese el numero  de la funcion que desea eliminar: "))
+        elecion= 0
         self.fun.eliminar_elemento(elecion)
         # print(fun.mostrar_directorio())
     def guardar(self):
