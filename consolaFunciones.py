@@ -2,7 +2,7 @@ from funciones import Funciones
 class menuFunciones:
     def __init__(self,fun=None):
 
-        if fun==None:
+        if fun == None:
             self.safejson=True
             self.fun=Funciones()
             funciones = Funciones()
@@ -11,10 +11,8 @@ class menuFunciones:
             self.fun=funciones
         else:
             self.safejson=False
-            if fun==None:
-                self.fun=Funciones()
-            else:
-                self.fun=fun
+            #verifica si el objeto esta basio
+            self.fun = fun
         
 
     def menu(self):
@@ -39,7 +37,7 @@ class menuFunciones:
             print("5.salir")
             opcion = int(input("ingrese la opcion que desea realizar: "))
             if self.safejson:
-                self.guardar
+                    self.guardar()
         #Elecion de guardar automaticamente
         if self.safejson:
             self.guardar()

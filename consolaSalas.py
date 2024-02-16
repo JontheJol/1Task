@@ -1,4 +1,4 @@
-from salas import Salas
+from salas import Salas,Funciones
 from consolaFunciones import menuFunciones
 
 class menuSalas:
@@ -13,10 +13,7 @@ class menuSalas:
             self.salas = salas
         else:
             self.safejson = False
-            if salas == None:
-                self.salas = Salas()
-            else:
-                self.salas = salas        
+            self.salas = salas    
     def menu(self):
         print("Bienvenido a trabajar con salas")
 
@@ -41,8 +38,10 @@ class menuSalas:
             opcion = int(input("Ingrese la opción que desea realizar: "))
             if self.safejson:
                 self.guardar()
-        if self.safejson == True:
+        if self.safejson:
             self.guardar()
+        else:
+            return self.salas
 
     
     def agregar(self):
@@ -56,25 +55,26 @@ class menuSalas:
         self.salas.agregar_elemento(Salas(numero, can_sillas, altura, encargado, funciones))
         self.mostrar()
 
+
     def mostrar(self):
         print("las salas que hay son: ")
         print(self.salas.mostrar_directorio())
         input("Presione enter para continuar")
     def modificar(self):
-      
 
         print("Ingrese los datos de la sala")
         numero = input("Ingrese el número de la sala: ")
         can_sillas = input("Ingrese la cantidad de sillas de la sala: ")
         altura = input("Ingrese la altura de la sala: ")
         encargado = input("Ingrese el nombre del encargado de la sala: ")
-        self.menuFunciones = menuFunciones(self.safejson, self.salas.funciones)
+        self.menuFunciones = menuFunciones( self.salas.lista[0].funciones)
         funciones = self.menuFunciones.menu()
         self.salas.actualizar_elemento(0, Salas(numero, can_sillas, altura, encargado, funciones))
         self.mostrar()
+
     def eliminar(self):
-        print("Ingrese el número de la sala que desea eliminar")
-        numero = in2t(input("Ingrese el número de la sala: "))
+        numero = 0 
+        print("se a eliminado la sala ")
         self.salas.eliminar_elemento(numero)
         self.mostrar()
     def guardar(self):
