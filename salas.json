@@ -1,5 +1,5 @@
 [{
-"numero": "123", "can_sillas": "123", "altura": "123", "encargado": "123", "funciones": [{
-"nombre": "dar", "clasificacion": "recibir", "director": "comer", "genero": "gastar", "año": "codiar"
+"numero": "123", "can_sillas": "dar", "altura": "dar", "encargado": "dar", "funciones": [{
+"nombre": "dar", "clasificacion": "dar", "director": "dar", "genero": "dar", "año": "dar"
 }]
 }]

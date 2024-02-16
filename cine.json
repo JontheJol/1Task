@@ -1,15 +1,7 @@
 [{
-"nombre": "ari", "direccion": "Av. 1", "gerente": "Juan", "snack": 1, "salas": [{
-"numero": 1, "can_sillas": 100, "altura": 10, "encargado": "Juan", "funciones": [{
-"nombre": "2das2", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
-}, {
-"nombre": "3das3", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
-}]
-}, {
-"numero": 2, "can_sillas": 100, "altura": 10, "encargado": "Juan", "funciones": [{
-"nombre": "2das2", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
-}, {
-"nombre": "3das3", "clasificacion": "das", "director": "das", "genero": "das", "año": "das"
+"nombre": "321", "direccion": "321", "gerente": "312", "snack": "321", "salas": [{
+"numero": "432", "can_sillas": "432", "altura": "432", "encargado": "432", "funciones": [{
+"nombre": "567", "clasificacion": "576", "director": "567", "genero": "567", "año": "567"
 }]
 }]
 }]
