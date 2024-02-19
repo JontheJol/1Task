@@ -59,7 +59,15 @@ class menuCines:
         print(self.cines.mostrar_directorio())
         input("Presione enter para continuar")
     def modificar(self):
-        ids=0
+        self.mostrar()
+        check = False
+        while check == False:
+            print("Ingrese el id del funciones que desea modificar")
+            ids = int(input("Ingrese el id del cine: "))
+            if ids <= len(self.cines.lista):
+                check = True
+            else:
+                print("ingrese valor correcto")
         print("Ingrese los nuevos datos del cine")
         nombre = input("Ingrese el nombre del cine: ")
         direccion = input("Ingrese la dirección del cine: ")
