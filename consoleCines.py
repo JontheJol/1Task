@@ -73,7 +73,7 @@ class menuCines:
         direccion = input("Ingrese la dirección del cine: ")
         gerente = input("Ingrese el nombre del gerente: ")
         snack = input("Ingrese la cantidad de snacks: ")
-        self.menuSalas = menuSalas(self.cines.lista[ids].salas.lista[ids])
+        self.menuSalas = menuSalas(self.cines.lista[ids].salas)
         salas = self.menuSalas.menu()
         self.cines.actualizar_elemento(ids, Cine(nombre, direccion, gerente, snack, salas))
         self.mostrar()
