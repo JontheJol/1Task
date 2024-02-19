@@ -1,10 +1,10 @@
 from funciones import Funciones
 class menuFunciones:
     def __init__(self,fun=None):
+        self.fun=Funciones()
 
         if fun == None:
             self.safejson=True
-            self.fun=Funciones()
             funciones = Funciones()
             json_data = funciones.read("funciones.json")
             funciones.convertir_json_a_funciones(json_data)
