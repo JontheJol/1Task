@@ -28,12 +28,8 @@ class Listas(Archivo):
 
     def actualizar_elemento(self, ids, func):
         if 0 <= int(ids) <= len(self.lista):
-            if ids==0:
-                self.lista.pop(0)
-                self.lista.insert(0, func)
-            else:
-                self.lista.pop(ids)
-                self.lista.insert(ids, func)
+            self.lista.pop(ids)
+            self.lista.insert(ids, func)
         else:
             raise ValueError("El elemento no se encuentra en la lista")
 

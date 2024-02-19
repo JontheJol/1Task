@@ -4,9 +4,9 @@ from consolaSalas import menuSalas
 class menuCines:
     def __init__(self,cines = None): 
         self.menuSalas = None
+        self.cines = Cine()
         if cines == None:
             self.safejson = True
-            self.cines = Cine()
             cines = Cine()
             json_data = cines.read("cine.json")
             cines.convertir_json_a_cine(json_data)
@@ -59,16 +59,36 @@ class menuCines:
         print(self.cines.mostrar_directorio())
         input("Presione enter para continuar")
     def modificar(self):
-        ids=0
+        self.mostrar()
+        check = False
+        while check == False:
+            print("Ingrese el id del sala que desea modificar")
+            ids = int(input("Ingrese el id del cine: "))
+            if ids <= len(self.cines.lista):
+                check = True
+            else:
+                print("ingrese valor correcto")
+        pop= Cine()
+        for i in range(len(self.cines.lista)):
+            if i != ids:
+                pop.agregar_elemento(self.cines.lista[i])
         print("Ingrese los nuevos datos del cine")
         nombre = input("Ingrese el nombre del cine: ")
         direccion = input("Ingrese la dirección del cine: ")
         gerente = input("Ingrese el nombre del gerente: ")
         snack = input("Ingrese la cantidad de snacks: ")
-        self.menuSalas = menuSalas(self.cines.lista[ids].salas.lista[ids])
+        self.menuSalas = menuSalas(self.cines.lista[ids].salas)
         salas = self.menuSalas.menu()
-        self.cines.actualizar_elemento(ids, Cine(nombre, direccion, gerente, snack, salas))
+        lop = Cine()
+        lop.agregar_elemento(Cine(nombre, direccion, gerente, snack, salas))
+        self.cines = lop
+        for i in range(len(pop.lista)):
+            if ids == 0 and i+1 >= len(self.cines.lista):
+                self.cines.agregar_elemento(pop.lista[i])
+            if i != ids:
+                self.cines.agregar_elemento(pop.lista[i])
         self.mostrar()
+
     def eliminar(self):
         self.mostrar()
         check = False
