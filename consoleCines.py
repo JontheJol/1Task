@@ -59,19 +59,27 @@ class menuCines:
         print(self.cines.mostrar_directorio())
         input("Presione enter para continuar")
     def modificar(self):
-        ids = 0
+        ids=0
         print("Ingrese los nuevos datos del cine")
         nombre = input("Ingrese el nombre del cine: ")
         direccion = input("Ingrese la dirección del cine: ")
         gerente = input("Ingrese el nombre del gerente: ")
         snack = input("Ingrese la cantidad de snacks: ")
-        self.menuSalas = menuSalas(self.cines.lista[0].salas)
+        self.menuSalas = menuSalas(self.cines.lista[ids].salas.lista[ids])
         salas = self.menuSalas.menu()
         self.cines.actualizar_elemento(ids, Cine(nombre, direccion, gerente, snack, salas))
         self.mostrar()
     def eliminar(self):
-        ids = 0
-        self.cines.eliminar_elemento(ids)
+        self.mostrar()
+        check = False
+        while check == False:
+            print("Ingrese el id del cine que desea modificar")
+            ids = int(input("Ingrese el id del cine: "))
+            if ids <= len(self.cines.lista):
+                check = True
+            else:
+                print("ingrese valor correcto")
+        self.cines.lista[ids].eliminar_elemento(ids)
         self.mostrar()
     def guardar(self):
         self.cines.safe("cine.json",str(self.cines.mostrar_directorio()))

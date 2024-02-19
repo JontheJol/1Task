@@ -38,9 +38,7 @@ class menuSalas:
             opcion = int(input("Ingrese la opción que desea realizar: "))
             if self.safejson:
                 self.guardar()
-        if self.safejson:
-            self.guardar()
-        else:
+        if not self.safejson:
             return self.salas
 
     
@@ -61,21 +59,29 @@ class menuSalas:
         print(self.salas.mostrar_directorio())
         input("Presione enter para continuar")
     def modificar(self):
-
+        self.mostrar()
+        check = False
+        while check == False:
+            print("Ingrese el id del sala que desea modificar")
+            ids = int(input("Ingrese el id del cine: "))
+            if ids <= len(self.salas.lista):
+                check = True
+            else:
+                print("ingrese valor correcto")
         print("Ingrese los datos de la sala")
         numero = input("Ingrese el número de la sala: ")
         can_sillas = input("Ingrese la cantidad de sillas de la sala: ")
         altura = input("Ingrese la altura de la sala: ")
         encargado = input("Ingrese el nombre del encargado de la sala: ")
-        self.menuFunciones = menuFunciones( self.salas.lista[0].funciones)
+        self.menuFunciones = menuFunciones( self.salas.funciones)
         funciones = self.menuFunciones.menu()
-        self.salas.actualizar_elemento(0, Salas(numero, can_sillas, altura, encargado, funciones))
+        self.salas.actualizar_elemento(ids, Salas(numero, can_sillas, altura, encargado, funciones))
         self.mostrar()
 
     def eliminar(self):
-        numero = 0 
+        ids=0
         print("se a eliminado la sala ")
-        self.salas.eliminar_elemento(numero)
+        self.salas.eliminar_elemento(ids)
         self.mostrar()
     def guardar(self):
         self.salas.safe("salas.json", str(self.salas.mostrar_directorio()))

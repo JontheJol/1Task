@@ -1,7 +1,13 @@
 [{
-"nombre": "321", "direccion": "321", "gerente": "312", "snack": "321", "salas": [{
-"numero": "432", "can_sillas": "432", "altura": "432", "encargado": "432", "funciones": [{
-"nombre": "567", "clasificacion": "576", "director": "567", "genero": "567", "año": "567"
-}]
-}]
-}]
+    "nombre": "123", "direccion": "123", "gerente": "123", "snack": "123", "salas": [{
+    "numero": "123", "can_sillas": "123", "altura": "123", "encargado": "123", "funciones": [{
+    "nombre": "123", "clasificacion": "123", "director": "123", "genero": "123", "año": "123"
+    }]
+    }]
+    }, {
+    "nombre": "543", "direccion": "53", "gerente": "53", "snack": "53", "salas": [{
+    "numero": "53", "can_sillas": "53", "altura": "53", "encargado": "53", "funciones": [{
+    "nombre": "53", "clasificacion": "53", "director": "53", "genero": "53", "año": "53"
+    }]
+    }]
+    }]

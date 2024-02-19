@@ -65,10 +65,15 @@ class menuFunciones:
             input("presione enter para continuar")
         
     def modificar(self):
-         if self.fun == None:
-             print("no hay funciones")
-             pass
-         elecion= 0
+         self.mostrar()
+         check = False
+         while check == False:
+             print("Ingrese el id del funciones que desea modificar")
+             ids = int(input("Ingrese el id del cine: "))
+             if ids <= len(self.fun.lista):
+                check = True
+             else:
+                print("ingrese valor correcto")
          print("ingrese los datos de la funcion")
          nombre= input("ingrese el nombre de la funcion: ")
          clasificacion = input("ingrese la clasificacion de la funcion: ")
@@ -76,14 +81,19 @@ class menuFunciones:
          genero = input("ingrese el genero de la funcion: ")
          año = input("ingrese el año de la funcion: ")
          #posiblemente da error en la siguiente linea
-         self.fun.actualizar_elemento(elecion,Funciones(nombre,clasificacion,director,genero,año))
+         self.fun.actualizar_elemento(ids,Funciones(nombre,clasificacion,director,genero,año))
         # print(fun.mostrar_directorio())
     def eliminar(self):
-        if self.fun == None:
-             print("no hay funciones")
-             pass
-        elecion= 0
-        self.fun.eliminar_elemento(elecion)
+        self.mostrar()
+        check = False
+        while check == False:
+            print("Ingrese el id del cine que desea modificar")
+            ids = int(input("Ingrese el id del cine: "))
+            if ids <= len(self.fun.lista):
+                check = True
+            else:
+                print("ingrese valor correcto")
+        self.fun.eliminar_elemento(ids)
         # print(fun.mostrar_directorio())
     def guardar(self):
         self.fun.safe("funciones.json",str(self.fun.mostrar_directorio()))
