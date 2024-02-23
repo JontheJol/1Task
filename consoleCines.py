@@ -11,6 +11,7 @@ class menuCines:
             json_data = cines.read("cine.json")
             cines.convertir_json_a_cine(json_data)
             self.cines = cines
+            
         else:
             self.safejson = False
             self.cines = cines
@@ -77,7 +78,8 @@ class menuCines:
         direccion = input("Ingrese la dirección del cine: ")
         gerente = input("Ingrese el nombre del gerente: ")
         snack = input("Ingrese la cantidad de snacks: ")
-        self.menuSalas = menuSalas(self.cines.lista[ids].salas)
+        inicia = self.cines.lista[ids].salas
+        self.menuSalas = menuSalas(inicia)
         salas = self.menuSalas.menu()
         lop = Cine()
         lop.agregar_elemento(Cine(nombre, direccion, gerente, snack, salas))

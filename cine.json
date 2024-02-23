@@ -1,19 +1,71 @@
-[{
-"nombre": "we", "direccion": "we", "gerente": "we", "snack": "we", "salas": [{
-"numero": "we", "can_sillas": "we", "altura": "we", "encargado": "we", "funciones": [{
-"nombre": "er", "clasificacion": "er", "director": "er", "genero": "er", "año": "er"
-}]
-}]
-}, {
-"nombre": "er", "direccion": "er", "gerente": "er", "snack": "er", "salas": [{
-"numero": "er", "can_sillas": "er", "altura": "er", "encargado": "er", "funciones": [{
-"nombre": "er", "clasificacion": "er", "director": "er", "genero": "er", "año": "er"
-}]
-}]
-}, {
-"nombre": "asda", "direccion": "asda", "gerente": "asd", "snack": "ads", "salas": [[], {
-"numero": "asda", "can_sillas": "adsa", "altura": "asd", "encargado": "asd", "funciones": [{
-"nombre": "asdad", "clasificacion": "asd", "director": "aasd", "genero": "asd", "año": "asd"
-}]
-}]
-}]
+[
+    {
+        "nombre": "we",
+        "direccion": "we",
+        "gerente": "we",
+        "snack": "we",
+        "salas": [
+            {
+                "numero": "we",
+                "can_sillas": "we",
+                "altura": "we",
+                "encargado": "we",
+                "funciones": [
+                    {
+                        "nombre": "er",
+                        "clasificacion": "er",
+                        "director": "er",
+                        "genero": "er",
+                        "año": "er"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "nombre": "er",
+        "direccion": "er",
+        "gerente": "er",
+        "snack": "er",
+        "salas": [
+            {
+                "numero": "er",
+                "can_sillas": "er",
+                "altura": "er",
+                "encargado": "er",
+                "funciones": [
+                    {
+                        "nombre": "er",
+                        "clasificacion": "er",
+                        "director": "er",
+                        "genero": "er",
+                        "año": "er"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "nombre": "asda",
+        "direccion": "asda",
+        "gerente": "asd",
+        "snack": "ads",
+        "salas": [
+            {
+                "numero": "asda",
+                "can_sillas": "adsa",
+                "altura": "asd",
+                "encargado": "asd",
+                "funciones": [
+                    {
+                        "nombre": "asdad",
+                        "clasificacion": "asd",
+                        "director": "aasd",
+                        "genero": "asd",
+                        "año": "asd"
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -20,6 +20,7 @@ class Salas(Listas):
     def convertir_json_a_salas(self,json_data):
         func=Funciones()
         uno=0
+        self.lista=[]
         for funcion_data in json_data:
              if uno == 0:
                 func.convertir_json_a_funciones(funcion_data["funciones"])

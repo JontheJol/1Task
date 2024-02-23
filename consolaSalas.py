@@ -4,16 +4,17 @@ from consolaFunciones import menuFunciones
 class menuSalas:
     def __init__(self, salas=None):
         self.menuFunciones = None
-        self.salas = Salas()
+        
         if salas == None:
             self.safejson = True
+            self.salas = Salas()
             salas = Salas()
             json_data = salas.read("salas.json")
             salas.convertir_json_a_salas(json_data)
             self.salas = salas
         else:
             self.safejson = False
-            self.salas.agregar_elemento(salas)
+            self.salas = salas
     def menu(self):
         print("Bienvenido a trabajar con salas")
 
@@ -73,7 +74,7 @@ class menuSalas:
         can_sillas = input("Ingrese la cantidad de sillas de la sala: ")
         altura = input("Ingrese la altura de la sala: ")
         encargado = input("Ingrese el nombre del encargado de la sala: ")
-        self.menuFunciones = menuFunciones( self.salas.lista[ids].funciones)
+        self.menuFunciones = menuFunciones( self.salas.funciones)
         funciones = self.menuFunciones.menu()
 
         self.salas.actualizar_elemento(ids, Salas(numero, can_sillas, altura, encargado, funciones))
