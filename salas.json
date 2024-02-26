@@ -1,5 +1,9 @@
 [{
-"numero": "9", "can_sillas": "9", "altura": "9", "encargado": "9", "funciones": [{
-"nombre": "9", "clasificacion": "9", "director": "9", "genero": "9", "año": "9"
+"numero": "123", "can_sillas": "300", "altura": "42", "encargado": "jorge", "funciones": [{
+"nombre": "", "clasificacion": "", "director": "", "genero": "e", "año": "899"
+}]
+}, {
+"numero": "", "can_sillas": "", "altura": "", "encargado": "", "funciones": [{
+"nombre": "", "clasificacion": "", "director": "", "genero": "e", "año": "899"
 }]
 }]

@@ -74,7 +74,7 @@ class menuSalas:
         can_sillas = input("Ingrese la cantidad de sillas de la sala: ")
         altura = input("Ingrese la altura de la sala: ")
         encargado = input("Ingrese el nombre del encargado de la sala: ")
-        self.menuFunciones = menuFunciones( self.salas.funciones)
+        self.menuFunciones = menuFunciones( self.salas.lista[ids].funciones)
         funciones = self.menuFunciones.menu()
 
         self.salas.actualizar_elemento(ids, Salas(numero, can_sillas, altura, encargado, funciones))

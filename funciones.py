@@ -20,6 +20,7 @@ class Funciones(Listas):
         return f"La funcions {self.nombre} es de clasificacion {self.clasificacion} dirigida por {self.director} del genero {self.genero} del año {self.año}"
     
     def convertir_json_a_funciones(self,json_data):
+        self.lista=[]
         for funcion_data in json_data:
              self.agregar_elemento( Funciones(
                 nombre=funcion_data["nombre"],

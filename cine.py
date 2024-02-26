@@ -20,6 +20,7 @@ class Cine(Listas):
     def convertir_json_a_cine(self,json_data):
         sala=Salas()
         uno=0
+        self.lista=[]
         for cine_data in json_data:
              if uno == 0:
                 sala.convertir_json_a_salas(cine_data["salas"])

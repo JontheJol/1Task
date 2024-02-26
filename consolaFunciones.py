@@ -1,8 +1,6 @@
 from funciones import Funciones
 class menuFunciones:
     def __init__(self,fun=None):
-        
-
         if fun == None:
             self.safejson=True
             self.fun=Funciones()
